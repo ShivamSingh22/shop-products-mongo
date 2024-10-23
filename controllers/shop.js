@@ -2,6 +2,7 @@ const Product = require('../models/product');
 
 exports.getProducts = (req, res, next) => {
   Product.find()
+    .populate("userId")
     .then(products => {
       console.log(products);
       res.render('shop/product-list', {
